@@ -1,0 +1,1 @@
+Class UUID => Andrew Moore - https://www.php.net/manual/pt_BR/function.uniqid.php
