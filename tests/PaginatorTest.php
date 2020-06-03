@@ -40,4 +40,16 @@ class PaginatorTest extends TestCase
             $paginator->page(2)
         );
     }
+
+    public function testJsonSerialize()
+    {
+        $array = [1, 2, 3, 4, 5];
+
+        $paginator = new Paginator($array, 3);
+
+        $this->assertEquals(
+            '"{\"paginator\":{\"pages\":2,\"last\":2}}"',
+            json_encode($paginator)
+        );
+    }
 }

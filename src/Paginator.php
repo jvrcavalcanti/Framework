@@ -2,7 +2,7 @@
 
 namespace Pendragon\Util;
 
-class Paginator
+class Paginator implements \JsonSerializable
 {
     private $content = [];
 
@@ -26,8 +26,23 @@ class Paginator
         }
     }
 
+    public function last()
+    {
+        return sizeof($this->content);
+    }
+
     public function page(int $page)
     {
         return $this->content[$page - 1];
+    }
+
+    public function jsonSerialize()
+    {
+        return json_encode([
+            "paginator" => [
+                "pages" => sizeof($this->content),
+                "last" => $this->last()
+            ]
+        ]);
     }
 }
