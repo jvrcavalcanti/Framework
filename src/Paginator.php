@@ -4,26 +4,30 @@ namespace Pendragon\Util;
 
 class Paginator
 {
-    private $content;
-    private $length;
+    private $content = [];
 
-    public function __construct(array $content)
+    public function __construct(array $content, int $div)
     {
-        $this->content = $content;
-        $this->length = sizeof($content);
-    }
+        $i = 0;
+        $j = 0;
 
-    public function parse(int $page, int $quantity): array
-    {
-        $result = [];
-
-        $i = $page == 1 ? 0 : $quantity;
-
-        while(sizeof($result) != $quantity) {
-            $result[] = $this->content[$i];
-            $i++;
+        if ($div > sizeof($content)) {
+            throw new \Exception("Impossible parse");
         }
 
-        return $result;
+        while(sizeof($content) != $i) {
+            if ($i !== 0 && $i % $div == 0) {
+                ++$j;
+                $this->content[$j] = [];
+            }
+
+            $this->content[$j][] = $content[$i];
+            $i++;
+        }
+    }
+
+    public function page(int $page)
+    {
+        return $this->content[$page - 1];
     }
 }

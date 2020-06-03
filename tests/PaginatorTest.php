@@ -9,42 +9,35 @@ class PaginatorTest extends TestCase
     {
         $array = [1, 2, 3, 4];
 
-        $paginator = new Paginator($array);
-
-        $result = $paginator->parse(1, 2);
+        $paginator = new Paginator($array, 2);
 
         $this->assertEquals(
-            [1, 2],
-            $result
+            [3, 4],
+            $paginator->page(2)
         );
     }
 
     public function testParse2()
     {
-        $array = [1, 2, 3, 4];
+        $array = [1, 2, 3, 4, 5];
 
-        $paginator = new Paginator($array);
-
-        $result = $paginator->parse(2, 2);
+        $paginator = new Paginator($array, 2);
 
         $this->assertEquals(
-            [3, 4],
-            $result
+            [5],
+            $paginator->page(3)
         );
     }
 
-    public function testParseFail()
+    public function testParse3()
     {
-        try {
-            $array = [1, 2, 3, 4];
+        $array = [1, 2, 3, 4, 5];
 
-            $paginator = new Paginator($array);
+        $paginator = new Paginator($array, 3);
 
-            $result = $paginator->parse(3, 2);
-
-            $this->assertTrue(false);
-        } catch (Exception $e) {
-            $this->assertTrue(true);
-        } 
+        $this->assertEquals(
+            [4, 5],
+            $paginator->page(2)
+        );
     }
 }
