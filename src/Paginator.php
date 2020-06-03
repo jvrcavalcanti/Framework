@@ -2,7 +2,9 @@
 
 namespace Pendragon\Util;
 
-class Paginator implements \JsonSerializable
+use Countable;
+
+class Paginator implements \JsonSerializable, Countable
 {
     private $content = [];
 
@@ -36,11 +38,16 @@ class Paginator implements \JsonSerializable
         return $this->content[$page - 1];
     }
 
+    public function count()
+    {
+        return sizeof($this->content);
+    }
+
     public function jsonSerialize()
     {
         return json_encode([
             "paginator" => [
-                "pages" => sizeof($this->content),
+                "pages" => count($this),
                 "last" => $this->last()
             ]
         ]);
