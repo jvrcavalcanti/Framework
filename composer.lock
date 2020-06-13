@@ -4,8 +4,262 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8760d0414d8f95bbb80e2c3a14c7a81",
-    "packages": [],
+    "content-hash": "57cf938a0a71f5f66f7394aeed222c3a",
+    "packages": [
+        {
+            "name": "accolon/datalayer",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jvrcavalcanti/DataLayer.git",
+                "reference": "32d641d430e9f0ed3bc6c1f50a32fc9fa2fb4be0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jvrcavalcanti/DataLayer/zipball/32d641d430e9f0ed3bc6c1f50a32fc9fa2fb4be0",
+                "reference": "32d641d430e9f0ed3bc6c1f50a32fc9fa2fb4be0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Accolon\\DataLayer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "João Victor Rocha Cavalcanti",
+                    "email": "jonnyvictor01@gmail.com"
+                }
+            ],
+            "description": "Library to data layer abstration",
+            "homepage": "https://github.com/jvrcavalcanti/DataLayer",
+            "time": "2020-06-12T21:31:30+00:00"
+        },
+        {
+            "name": "accolon/migration",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jvrcavalcanti/Migration.git",
+                "reference": "0ed0f47c19e79d7805368e2b07f3890dd7874e97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jvrcavalcanti/Migration/zipball/0ed0f47c19e79d7805368e2b07f3890dd7874e97",
+                "reference": "0ed0f47c19e79d7805368e2b07f3890dd7874e97",
+                "shasum": ""
+            },
+            "require": {
+                "accolon/datalayer": "^3.0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Accolon\\Migration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joao Victor Rocha Cavalcanti",
+                    "email": "jvrcavalcanti@scseduca.com.br"
+                }
+            ],
+            "description": "Library for migration PHP",
+            "time": "2020-06-12T21:39:06+00:00"
+        },
+        {
+            "name": "accolon/route",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jvrcavalcanti/Route.git",
+                "reference": "4a704354ef360c2327aac22a2ef62819cd8c8a25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jvrcavalcanti/Route/zipball/4a704354ef360c2327aac22a2ef62819cd8c8a25",
+                "reference": "4a704354ef360c2327aac22a2ef62819cd8c8a25",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Accolon\\Route\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joao Victor Rocha Cavalcanti",
+                    "email": "jonnyvictor01@gmail.com.br"
+                }
+            ],
+            "description": "Library routes php",
+            "time": "2020-06-12T21:26:28+00:00"
+        },
+        {
+            "name": "accolon/template",
+            "version": "3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jvrcavalcanti/Template.git",
+                "reference": "145a6d149b944c05cdf582d1ddda9146479dea68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jvrcavalcanti/Template/zipball/145a6d149b944c05cdf582d1ddda9146479dea68",
+                "reference": "145a6d149b944c05cdf582d1ddda9146479dea68",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4",
+                "scssphp/scssphp": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Accolon\\Template\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joao Victor Rocha Cavalcanti",
+                    "email": "jonnyvictor01@gmail.com"
+                }
+            ],
+            "description": "Library Template php",
+            "time": "2020-06-12T21:34:36+00:00"
+        },
+        {
+            "name": "accolon/token",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jvrcavalcanti/Token.git",
+                "reference": "799f1f8dcaade6b2cadc91b6f090ce69238cff77"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jvrcavalcanti/Token/zipball/799f1f8dcaade6b2cadc91b6f090ce69238cff77",
+                "reference": "799f1f8dcaade6b2cadc91b6f090ce69238cff77",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Accolon\\Token\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joao Victor Rocha Cavalcanti",
+                    "email": "jonnyvictor01@gmail.com"
+                }
+            ],
+            "description": "Library for Token",
+            "time": "2020-06-02T22:32:56+00:00"
+        },
+        {
+            "name": "scssphp/scssphp",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scssphp/scssphp.git",
+                "reference": "824e4cec10b2bfa88eec5dac23991cb9106622c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/824e4cec10b2bfa88eec5dac23991cb9106622c1",
+                "reference": "824e4cec10b2bfa88eec5dac23991cb9106622c1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.3",
+                "squizlabs/php_codesniffer": "~3.5",
+                "twbs/bootstrap": "~4.3",
+                "zurb/foundation": "~6.5"
+            },
+            "bin": [
+                "bin/pscss"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ScssPhp\\ScssPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthon Pang",
+                    "email": "apang@softwaredevelopment.ca",
+                    "homepage": "https://github.com/robocoder"
+                },
+                {
+                    "name": "Cédric Morin",
+                    "email": "cedric@yterium.com",
+                    "homepage": "https://github.com/Cerdic"
+                }
+            ],
+            "description": "scssphp is a compiler for SCSS written in PHP.",
+            "homepage": "http://scssphp.github.io/scssphp/",
+            "keywords": [
+                "css",
+                "less",
+                "sass",
+                "scss",
+                "stylesheet"
+            ],
+            "time": "2020-06-04T17:30:40+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -536,6 +790,12 @@
                 "filesystem",
                 "iterator"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
             "time": "2020-04-18T05:02:12+00:00"
         },
         {
@@ -684,6 +944,12 @@
             "keywords": [
                 "timer"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
             "time": "2020-04-20T06:00:37+00:00"
         },
         {
@@ -732,6 +998,12 @@
             "homepage": "https://github.com/sebastianbergmann/php-token-stream/",
             "keywords": [
                 "tokenizer"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
             ],
             "time": "2020-05-06T09:56:31+00:00"
         },
@@ -821,6 +1093,16 @@
                 "testing",
                 "xunit"
             ],
+            "funding": [
+                {
+                    "url": "https://phpunit.de/donate.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
             "time": "2020-04-30T06:32:53+00:00"
         },
         {
@@ -867,6 +1149,12 @@
             ],
             "description": "Collection of value objects that represent the PHP code units",
             "homepage": "https://github.com/sebastianbergmann/code-unit",
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
             "time": "2020-04-30T05:58:10+00:00"
         },
         {
@@ -1032,6 +1320,12 @@
                 "unidiff",
                 "unified diff"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
             "time": "2020-05-08T05:01:12+00:00"
         },
         {
@@ -1084,6 +1378,12 @@
                 "Xdebug",
                 "environment",
                 "hhvm"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
             ],
             "time": "2020-04-14T13:36:52+00:00"
         },
@@ -1543,6 +1843,20 @@
                 "polyfill",
                 "portable"
             ],
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-05-12T16:14:59+00:00"
         },
         {
@@ -1642,5 +1956,6 @@
     "platform": {
         "php": "^7.4"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

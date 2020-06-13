@@ -1,6 +1,6 @@
 <?php
 
-namespace Pendragon\Util;
+namespace Pendragon\Framework;
 
 use Countable;
 
