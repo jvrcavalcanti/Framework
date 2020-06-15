@@ -6,7 +6,8 @@ use Accolon\Token\Token;
 
 class AuthToken implements IAuth
 {
-    public function generate($data) {
+    public function generate($data): string
+    {
         return Token::make($data);
     }
 
@@ -26,7 +27,7 @@ class AuthToken implements IAuth
         return false;
     }
 
-    public function verifyToken(string $token)
+    public function verifyToken(string $token): bool
     {
         return Token::verify($token);
     }
