@@ -15,7 +15,7 @@ class AuthMiddleware implements Middleware
         $this->auth = new AuthToken();
     }
 
-    public function handle(Request $request, Response $response, \Closure $next): ?string
+    public function handle(Request $request, Response $response, $next)
     {
         if ($this->auth->verify($request)) {
             return $response->json([
