@@ -17,7 +17,7 @@ class AuthMiddleware implements Middleware
 
     public function handle(Request $request, Response $response, $next)
     {
-        if ($this->auth->verify($request)) {
+        if (!$this->auth->verify($request)) {
             return $response->json([
                 "message" => "Unaterized"
             ], 401);
