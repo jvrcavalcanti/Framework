@@ -8,7 +8,7 @@ class className implements Migration
 {
     private string $table = "%name%";
     
-    public function up(): bool
+    public function up()
     {
         return Schema::create($this->table, function (Blueprint $table) {
             $table->id();
@@ -16,7 +16,7 @@ class className implements Migration
         });
     }
 
-    public function down(): bool
+    public function down()
     {
         return Schema::dropIfExists($this->table);
     }
