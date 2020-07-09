@@ -2,11 +2,13 @@
 
 namespace Pendragon\Framework\Console;
 
+use Composer\Script\Event;
+
 class Migration extends Command
 {
-    public static function migrate()
+    public static function migrate(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $migrations = filesdir("./migration");
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
@@ -17,9 +19,9 @@ class Migration extends Command
         }
     }
 
-    public static function rollback()
+    public static function rollback(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $migrations = filesdir("./migration");
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
@@ -30,9 +32,9 @@ class Migration extends Command
         }
     }
 
-    public static function refresh()
+    public static function refresh(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $migrations = filesdir("./migration");
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];

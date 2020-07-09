@@ -9,7 +9,7 @@ class Make extends Command
 {
     public static function migration(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $template = file_get_contents("vendor/pendragon/framework/templates/migration.template.php");
         $args = $event->getArguments();
         $f = fopen("./migration/" . $args[0] . ".php", "w");
@@ -22,7 +22,7 @@ class Make extends Command
 
     public static function model(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $template = file_get_contents("vendor/pendragon/framework/templates/model.template.php");
         $args = $event->getArguments();
         $f = fopen("./app/model/" . $args[0] . ".php", "w");
@@ -35,7 +35,7 @@ class Make extends Command
 
     public static function controller(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $template = file_get_contents("vendor/pendragon/framework/templates/controller.template.php");
         $args = $event->getArguments();
         $f = fopen("./app/controller/" . $args[0] . ".php", "w");
@@ -47,7 +47,7 @@ class Make extends Command
 
     public static function middleware(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $template = file_get_contents("vendor/pendragon/framework/templates/middleware.template.php");
         $args = $event->getArguments();
         $f = fopen("./app/middleware/" . $args[0] . ".php", "w");
@@ -59,7 +59,7 @@ class Make extends Command
 
     public static function view(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $args = $event->getArguments();
         mkdir("./resources/view/" . $args[0]);
 
@@ -70,7 +70,7 @@ class Make extends Command
 
     public static function component(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $args = $event->getArguments();
         $name = $args[0];
 
@@ -92,7 +92,7 @@ class Make extends Command
 
     public static function key(Event $event)
     {
-        self::autoload();
+        self::autoload($event);
         $env = file_get_contents(APP_ROOT . ".env");
         $envs = explode("\n", $env);
         $dotenv = [];
