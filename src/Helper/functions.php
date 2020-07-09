@@ -1,8 +1,31 @@
 <?php
 
+use Accolon\Route\Request;
 use Accolon\Route\Response;
 use Accolon\Template\Template;
+use Pendragon\Framework\Auth\AuthToken;
 use Symfony\Component\Dotenv\Dotenv;
+
+function request(?string $param = null)
+{
+    $request = new Request($_REQUEST);
+    if (!$param) {
+        return $request;
+    }
+
+    return $request->get($param);
+}
+
+function auth()
+{
+    return new AuthToken;
+}
+
+function app(): Pendragon\Framework\App
+{
+    global $app;
+    return $app;
+}
 
 function component($name, $options = [])
 {
