@@ -11,7 +11,7 @@ class App extends Router
     public function run()
     {
         try {
-            parent::run();
+            return parent::run();
         } catch (ValidateFailException $e) {
             return (new Response)->json([
                 "message" => $e->getMessage()
