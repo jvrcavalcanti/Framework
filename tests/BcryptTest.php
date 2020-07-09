@@ -1,6 +1,8 @@
 <?php
 
-use Pendragon\Util\Bcrypt;
+namespace Test;
+
+use Pendragon\Framework\Bcrypt;
 use PHPUnit\Framework\TestCase;
 
 class BcryptTest extends TestCase

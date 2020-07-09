@@ -1,6 +1,8 @@
 <?php
 
-use Pendragon\Util\Crypt;
+namespace Test;
+
+use Pendragon\Framework\Crypt;
 use PHPUnit\Framework\TestCase;
 
 class CryptTest extends TestCase

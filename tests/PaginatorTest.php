@@ -1,6 +1,8 @@
 <?php
 
-use Pendragon\Util\Paginator;
+namespace Test;
+
+use Pendragon\Framework\Paginator;
 use PHPUnit\Framework\TestCase;
 
 class PaginatorTest extends TestCase
