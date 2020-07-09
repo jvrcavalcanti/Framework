@@ -2,10 +2,11 @@
 
 namespace Pendragon\Framework\Console;
 
-class Migration
+class Migration extends Command
 {
     public static function migrate()
     {
+        self::autoload();
         $migrations = filesdir("./migration");
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
@@ -18,6 +19,7 @@ class Migration
 
     public static function rollback()
     {
+        self::autoload();
         $migrations = filesdir("./migration");
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
@@ -30,6 +32,7 @@ class Migration
 
     public static function refresh()
     {
+        self::autoload();
         $migrations = filesdir("./migration");
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
