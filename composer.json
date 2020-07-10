@@ -15,7 +15,10 @@
     "autoload": {
         "psr-4": {
             "Pendragon\\Framework\\": "src/"
-        }
+        },
+        "files": [
+            "./src/Helper/functions.php"
+        ]
     },
     "scripts": {
         "test": "./vendor/bin/phpunit tests"

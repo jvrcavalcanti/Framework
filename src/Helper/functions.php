@@ -57,7 +57,7 @@ function img($path)
 
 function response(): Response
 {
-    return new Response;
+    return new Response();
 }
 
 function redirect($path)
