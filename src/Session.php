@@ -40,6 +40,10 @@ class Session
 
     public static function only(array $keys): array
     {
-        return array_filter($_SESSION, fn($key) => in_array($key, $keys), ARRAY_FILTER_USE_KEY);
+        return array_filter(
+            $_SESSION,
+            fn($key) => in_array($key, $keys),
+            ARRAY_FILTER_USE_KEY
+        );
     }
 }

@@ -17,7 +17,7 @@
             "Pendragon\\Framework\\": "src/"
         },
         "files": [
-            "./src/Helper/functions.php"
+            "./src/Helpers/autoload.php"
         ]
     },
     "scripts": {

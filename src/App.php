@@ -2,9 +2,10 @@
 
 namespace Pendragon\Framework;
 
-use Accolon\Route\Response;
 use Accolon\Route\Router;
+use Pendragon\Framework\Exceptions\PendragonException;
 use Pendragon\Framework\Exceptions\ValidateFailException;
+use Accolon\DataLayer\Exceptions\FailQueryException;
 
 class App extends Router
 {
@@ -13,9 +14,17 @@ class App extends Router
         try {
             return parent::run();
         } catch (ValidateFailException $e) {
-            return (new Response)->json([
+            return response()->json([
                 "message" => $e->getMessage()
-            ], 400);
+            ], $e->getCode());
+        } catch (FailQueryException $e) {
+            return response()->json([
+                "message" => $e->getMessage()
+            ], 204);
+        } catch (PendragonException $e) {
+            return response()->json([
+                "message" => $e->getMessage()
+            ], $e->getCode());
         }
     }
 }

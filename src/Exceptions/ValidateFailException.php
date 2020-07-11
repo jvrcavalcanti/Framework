@@ -2,9 +2,10 @@
 
 namespace Pendragon\Framework\Exceptions;
 
-use Exception;
-
-class ValidateFailException extends Exception
+class ValidateFailException extends PendragonException
 {
-
+    public function __construct(string $message)
+    {
+        parent::__construct($message, 400);
+    }
 }
