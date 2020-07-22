@@ -1,6 +1,6 @@
 <?php
 
-namespace Pendragon\Framework;
+namespace Pendragon\Framework\Util;
 
 use Accolon\Route\Request;
 use Pendragon\Framework\Exceptions\ValidateFailException;

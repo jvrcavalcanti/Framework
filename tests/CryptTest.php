@@ -2,7 +2,7 @@
 
 namespace Test;
 
-use Pendragon\Framework\Crypt;
+use Pendragon\Framework\Hashing\Crypt;
 use PHPUnit\Framework\TestCase;
 
 class CryptTest extends TestCase

@@ -2,7 +2,7 @@
 
 namespace Test;
 
-use Pendragon\Framework\Bcrypt;
+use Pendragon\Framework\Hashing\Bcrypt;
 use PHPUnit\Framework\TestCase;
 
 class BcryptTest extends TestCase

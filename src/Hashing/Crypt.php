@@ -1,6 +1,6 @@
 <?php
 
-namespace Pendragon\Framework;
+namespace Pendragon\Framework\Hashing;
 
 class Crypt
 {

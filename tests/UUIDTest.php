@@ -2,7 +2,7 @@
 
 namespace Test;
 
-use Pendragon\Framework\UUID;
+use Pendragon\Framework\Util\UUID;
 use PHPUnit\Framework\TestCase;
 
 class UUIDTest extends TestCase

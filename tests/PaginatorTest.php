@@ -2,7 +2,7 @@
 
 namespace Test;
 
-use Pendragon\Framework\Paginator;
+use Pendragon\Framework\Util\Paginator;
 use PHPUnit\Framework\TestCase;
 
 class PaginatorTest extends TestCase

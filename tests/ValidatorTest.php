@@ -2,7 +2,7 @@
 
 namespace Test;
 
-use Pendragon\Framework\Validator;
+use Pendragon\Framework\Util\Validator;
 use PHPUnit\Framework\TestCase;
 
 class ValidatorTest extends TestCase
