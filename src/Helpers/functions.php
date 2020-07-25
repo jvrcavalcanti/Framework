@@ -58,12 +58,6 @@ function dd($var)
     }
 
     ?>
-    <style>
-        pre {
-            background-color: darkred;
-            color: darkgoldenrod;
-        }
-    </style>
     <pre>
         <?php var_dump($var); ?>
     </pre>

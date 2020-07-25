@@ -2,10 +2,18 @@
 
 namespace Pendragon\Framework\Auth;
 
+use Accolon\Route\Request;
 use Accolon\Token\Token;
 
 class AuthToken implements IAuth
 {
+    private Request $request;
+
+    public function __construct()
+    {
+        $this->request = request();
+    }
+
     public function generate($data): string
     {
         return Token::make($data);
@@ -16,19 +24,33 @@ class AuthToken implements IAuth
         return Token::extract($token);
     }
 
-    public function verify(\Accolon\Route\Request $request): bool
+    public function verify(): bool
     {
-        if (preg_match('/Bearer\s(\S+)/', $request->getAuthorization(), $matches)) {
-            $token = $matches[1];
-
-            return $this->verifyToken($token);
-        }
-
-        return false;
+        return !!$this->getToken($this->request);
     }
 
     public function verifyToken(string $token): bool
     {
         return Token::verify($token);
+    }
+
+    public function getToken(): ?string
+    {
+        if (preg_match('/Bearer\s(\S+)/', $this->request->getAuthorization(), $matches)) {
+            $token = $matches[1];
+
+            return $token;
+        }
+
+        return null;
+    }
+
+    public function user(): Model
+    {
+        $token = $this->getToken();
+
+        $data = $this->extract($token);
+
+        return (new \App\User())->findId($data['user_id']);
     }
 }

@@ -20,7 +20,7 @@ class App extends Router
         } catch (FailQueryException $e) {
             return response()->json([
                 "message" => $e->getMessage()
-            ], 204);
+            ], 400);
         } catch (PendragonException $e) {
             return response()->json([
                 "message" => $e->getMessage()
