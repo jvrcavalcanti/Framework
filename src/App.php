@@ -25,10 +25,6 @@ class App extends Router
             return response()->json([
                 "message" => $e->getMessage()
             ], $e->getCode());
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => $e-getMessage()
-            ], 500);
         }
     }
 }

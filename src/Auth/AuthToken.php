@@ -45,12 +45,12 @@ class AuthToken implements IAuth
         return null;
     }
 
-    public function user(): Model
+    public function user(): \App\Model\User
     {
         $token = $this->getToken();
 
         $data = $this->extract($token);
 
-        return (new \App\User())->findId($data['user_id']);
+        return (new \App\Model\User)->findIdOrFail($data['user_id']);
     }
 }
