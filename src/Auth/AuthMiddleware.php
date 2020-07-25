@@ -8,16 +8,9 @@ use Accolon\Route\Response;
 
 class AuthMiddleware implements Middleware
 {
-    private IAuth $auth;
-
-    public function __construct()
-    {
-        $this->auth = new AuthToken();
-    }
-
     public function handle(Request $request, Response $response, $next)
     {
-        if (!$this->auth->verify($request)) {
+        if (!auth()->verify()) {
             return $response->json([
                 "message" => "Unaterized"
             ], 401);
