@@ -15,6 +15,14 @@ function request(?string $param = null)
     return $request->get($param);
 }
 
+function session($param = null)
+{
+    if (is_null($param)) {
+        return new \Pendragon\Framework\Web\Session();
+    }
+    return session()->$param;
+}
+
 function auth()
 {
     return new AuthToken;
@@ -58,9 +66,23 @@ function dd($var)
     }
 
     ?>
-    <pre>
+    <html>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+
+            html {
+                background-color: #00082b;
+                color: #ad850a;
+            }
+        </style>
+        <pre>
         <?php var_dump($var); ?>
-    </pre>
+        </pre>
+    </html>
     <?php
-    die();
+    exit;
 }
