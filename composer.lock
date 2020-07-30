@@ -88,16 +88,16 @@
         },
         {
             "name": "accolon/route",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jvrcavalcanti/Route.git",
-                "reference": "4eaa19849e2172538bd4cfad7986d0083bca8605"
+                "reference": "a1b9553892da2549a00ee8e214c0df1aa9b2002c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jvrcavalcanti/Route/zipball/4eaa19849e2172538bd4cfad7986d0083bca8605",
-                "reference": "4eaa19849e2172538bd4cfad7986d0083bca8605",
+                "url": "https://api.github.com/repos/jvrcavalcanti/Route/zipball/a1b9553892da2549a00ee8e214c0df1aa9b2002c",
+                "reference": "a1b9553892da2549a00ee8e214c0df1aa9b2002c",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 }
             ],
             "description": "Library routes php",
-            "time": "2020-07-22T06:09:55+00:00"
+            "time": "2020-07-30T06:56:40+00:00"
         },
         {
             "name": "accolon/template",
