@@ -7,8 +7,7 @@
         "accolon/migration": "^3.0.4",
         "accolon/template": "^3.3",
         "accolon/token": "^1.2",
-        "accolon/route": "^4.2",
-        "psr/container": "^1.0"
+        "accolon/route": "^4.2"
     },
     "require-dev": {
         "phpunit/phpunit": "~9.1"
