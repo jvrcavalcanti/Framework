@@ -1,7 +1,12 @@
 <?php
 
-require_once '../vendor/autoload.php';
-
+use Pendragon\Framework\App;
 use Pendragon\Framework\Web\Session;
 
-dd(session()->rewind());
+require_once '../vendor/autoload.php';
+
+$app = new App();
+
+$app->bind("user", Session::class);
+
+dd($app->make('user'));
