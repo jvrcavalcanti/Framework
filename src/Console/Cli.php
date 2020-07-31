@@ -17,6 +17,8 @@ class Cli
         "make.migration",
         "make.key",
         "make.middleware",
+        "make.repository",
+        "make.provider",
         // Migrate
         "migrate",
         "migrate.rollback",
@@ -68,6 +70,14 @@ class Cli
 
             case "make.key":
                 Make::key($event);
+                break;
+
+            case "make.repository":
+                Make::repository($event);
+                break;
+
+            case "make.provider":
+                Make::provider($event);
                 break;
 
             case "migrate":

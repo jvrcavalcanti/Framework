@@ -109,4 +109,36 @@ class Make
         }
         file_put_contents(APP_ROOT . ".env", $out);
     }
+
+    public static function repository(Event $event)
+    {
+        $args = $event->getArguments();
+        $name = $args[0];
+
+        if ($args[1] === "--izanami") {
+            $template = $event->getTemplate("Repository");
+            $template = str_replace("className", $name . "Izanami", $template);
+
+            $f = fopen(APP_ROOT . "app/Repositories/Izanami/" . $name . "Izanami" . ".php", "w");
+            fwrite($f, $template);
+        }
+
+        $template = $event->getTemplate("RepositoryInterface");
+        $template = str_replace("className", "I" . $name, $template);
+
+        $f = fopen(APP_ROOT . "app/Repositories/Izanami/" . "I" . $name . ".php", "w");
+        fwrite($f, $template);
+    }
+
+    public static function provider(Event $event)
+    {
+        $args = $event->getArguments();
+        $name = $args[0];
+
+        $template = $event->getTemplate("Provider");
+        $template = str_replace("className", $name, $template);
+
+        $f = fopen(APP_ROOT . "app/Providers/" . $name . ".php", "w");
+        fwrite($f, $template);
+    }
 }

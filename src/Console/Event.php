@@ -133,4 +133,51 @@ class Event
         }
         TMP;
     }
+
+    private function templateRepository()
+    {
+        return <<<TMP
+        <?php
+
+        namespace App\Repositories;
+
+        class className
+        {
+            //
+        }
+        TMP;
+    }
+
+    private function templateRepositoryInterface()
+    {
+        return <<<TMP
+        <?php
+
+        namespace App\Repositories;
+
+        interface className
+        {
+            //
+        }
+        TMP;
+    }
+
+    private function templateProvider()
+    {
+        return <<<TMP
+        <?php
+
+        namespace App\Providers;
+
+        use Pendragon\Framework\Provider;
+
+        class className extends Provider
+        {
+            public function boot()
+            {
+                //
+            }
+        }
+        TMP;
+    }
 }
