@@ -9,7 +9,9 @@ trait Providers
 
     public function registerProvider(string $class)
     {
-        $this->providers[] = $this->make($class);
+        $provider = $this->make($class);
+        $this->providers[] = $provider;
+        $provider->register();
 
         return $this;
     }
@@ -32,11 +34,25 @@ trait Providers
 
     public function addService(string $name, $service)
     {
-        $this->services[$name] = $service;
+        if (is_object($service)) {
+            $this->services[$name] = $service;
+            return;
+        }
+
+        if (is_string($service)) {
+            $this->services[$name] = $this->make($service);
+            return;
+        }
+
+        if (is_callable($service)) {
+            $this->services[$name] = call_user_func($service, $this);
+            return;
+        }
+        
     }
 
     public function getService(string $name)
     {
-        return $this->services[$name];
+        return $this->services[$name] ?? null;
     }
 }

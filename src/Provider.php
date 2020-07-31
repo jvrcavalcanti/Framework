@@ -13,5 +13,13 @@ abstract class Provider
         $this->app = app();
     }
 
-    abstract public function boot();
+    public function boot()
+    {
+        //
+    }
+
+    public function register()
+    {
+        //
+    }
 }
