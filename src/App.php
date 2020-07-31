@@ -6,12 +6,16 @@ use Accolon\Route\Router;
 use Pendragon\Framework\Exceptions\PendragonException;
 use Pendragon\Framework\Exceptions\ValidateFailException;
 use Accolon\DataLayer\Exceptions\FailQueryException;
+use Pendragon\Framework\Traits\Providers;
 
 class App extends Router
 {
+    use Providers;
+
     public function run()
     {
         try {
+            $this->boot();
             return parent::run();
         } catch (ValidateFailException $e) {
             return response()->json([
