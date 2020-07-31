@@ -146,6 +146,8 @@ class Event
 
         namespace App\Repositories;
 
+        use App\Repositories\interfaceName;
+
         class className implements interfaceName
         {
             //

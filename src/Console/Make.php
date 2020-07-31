@@ -13,7 +13,7 @@ class Make
         $f = fopen(APP_ROOT . "migrations/" . $args[0] . ".php", "w");
 
         $template = str_replace("className", $args[0], $template);
-        $template = str_replace("%name%", strtolower(explode("Table", $args[0])[0]) . "s", $template);
+        $template = str_replace("%name%", strtolower(explode("Schema", $args[0])[0]) . "s", $template);
 
         fwrite($f, $template);
         $event->say("Created " . "migrations/" . $args[0] . ".php");
