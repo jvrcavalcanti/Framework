@@ -10,12 +10,13 @@ class Make
     {
         $template = $event->getTemplate("Migration");
         $args = $event->getArguments();
-        $f = fopen(APP_ROOT . "migration/" . $args[0] . ".php", "w");
+        $f = fopen(APP_ROOT . "migrations/" . $args[0] . ".php", "w");
 
         $template = str_replace("className", $args[0], $template);
         $template = str_replace("%name%", strtolower(explode("Table", $args[0])[0]) . "s", $template);
 
         fwrite($f, $template);
+        $event->say("Created " . "migrations/" . $args[0] . ".php");
     }
 
     public static function model(Event $event)
@@ -28,6 +29,7 @@ class Make
         $template = str_replace("%name%", strtolower($args[0]) . "s", $template);
 
         fwrite($f, $template);
+        $event->say("Created " . "app/Model/" . $args[0] . ".php");
     }
 
     public static function controller(Event $event)
@@ -39,6 +41,7 @@ class Make
         $template = str_replace("className", $args[0], $template);
 
         fwrite($f, $template);
+        $event->say("Created " . "app/Controller/" . $args[0] . ".php");
     }
 
     public static function middleware(Event $event)
@@ -50,6 +53,7 @@ class Make
         $template = str_replace("className", $args[0], $template);
 
         fwrite($f, $template);
+        $event->say("Created " . "app/Middleware/" . $args[0] . ".php");
     }
 
     public static function view(Event $event)
@@ -118,16 +122,19 @@ class Make
         if ($args[1] === "--izanami") {
             $template = $event->getTemplate("Repository");
             $template = str_replace("className", $name . "Izanami", $template);
+            $template = str_replace("interfaceName", "I" .$name, $template);
 
             $f = fopen(APP_ROOT . "app/Repositories/Izanami/" . $name . "Izanami" . ".php", "w");
             fwrite($f, $template);
+            $event->say("Created " . "app/Repositories/Izanami/" . $name . "Izanami" . ".php");
         }
 
         $template = $event->getTemplate("RepositoryInterface");
         $template = str_replace("className", "I" . $name, $template);
 
-        $f = fopen(APP_ROOT . "app/Repositories/Izanami/" . "I" . $name . ".php", "w");
+        $f = fopen(APP_ROOT . "app/Repositories/" . "I" . $name . ".php", "w");
         fwrite($f, $template);
+        $event->say("Created " . "app/Repositories/" . "I" . $name . ".php");
     }
 
     public static function provider(Event $event)
@@ -140,5 +147,6 @@ class Make
 
         $f = fopen(APP_ROOT . "app/Providers/" . $name . ".php", "w");
         fwrite($f, $template);
+        $event->say("Created " . "app/Providers/" . $name . ".php");
     }
 }
