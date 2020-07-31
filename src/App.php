@@ -12,10 +12,14 @@ class App extends Router
 {
     use Providers;
 
+    public function bootProviders()
+    {
+        $this->boot();
+    }
+
     public function run()
     {
         try {
-            $this->boot();
             return parent::run();
         } catch (ValidateFailException $e) {
             return response()->json([

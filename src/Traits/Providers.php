@@ -9,7 +9,7 @@ trait Providers
 
     public function registerProvider(string $class)
     {
-        $this->providers[] = $this->resolve($class);
+        $this->providers[] = $this->make($class);
 
         return $this;
     }
