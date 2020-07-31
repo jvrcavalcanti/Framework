@@ -4,12 +4,14 @@ namespace Pendragon\Framework\Console;
 
 class Migration
 {
+    private static string $path = APP_ROOT . "migrations";
+
     public static function migrate()
     {
-        $migrations = filesdir("./migration");
+        $migrations = filesdir(self::$path);
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
-            require_once "./migration/" . $migration;
+            require_once self::$path . "/" . $migration;
             $table = new $name;
             $table->up();
             echo "Up: {$name}\n";
@@ -18,10 +20,10 @@ class Migration
 
     public static function rollback()
     {
-        $migrations = filesdir("./migration");
+        $migrations = filesdir(self::$path);
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
-            require_once "./migration/" . $migration;
+            require_once self::$path . "/" . $migration;
             $table = new $name;
             $table->down();
             echo "Down: {$name}\n";
@@ -30,10 +32,10 @@ class Migration
 
     public static function refresh()
     {
-        $migrations = filesdir("./migration");
+        $migrations = filesdir(self::$path);
         foreach ($migrations as $migration) {
             $name = explode(".", $migration)[0];
-            require_once "./migration/" . $migration;
+            require_once self::$path . "/" . $migration;
             $table = new $name;
             $table->down();
             echo "Down: {$name}\n";

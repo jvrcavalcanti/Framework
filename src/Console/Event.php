@@ -17,6 +17,11 @@ class Event
         }
     }
 
+    public function say(string $message)
+    {
+        echo $message . "\n";
+    }
+
     public function getCommand()
     {
         return $this->command;
