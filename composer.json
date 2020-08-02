@@ -1,0 +1,26 @@
+{
+    "name": "pendragon/framework",
+    "description": "Utility classes for framework pendragon",
+    "license": "MIT",
+    "require": {
+        "php": "^7.4",
+        "accolon/migration": "^3.0.4",
+        "accolon/template": "^3.3",
+        "accolon/token": "^1.2",
+        "accolon/route": "^4.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pendragon\\Framework\\": "src/"
+        },
+        "files": [
+            "./src/Helpers/autoload.php"
+        ]
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit tests"
+    }
+}
