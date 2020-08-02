@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "705951c84e74b1ea3de95551ba415601",
+    "content-hash": "ab59ff2bd97ab6ab8d8c3c3265634dcc",
     "packages": [
         {
             "name": "accolon/izanami",
@@ -85,6 +85,36 @@
             ],
             "description": "Library for migration PHP",
             "time": "2020-07-24T03:36:09+00:00"
+        },
+        {
+            "name": "accolon/request",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jvrcavalcanti/Request.git",
+                "reference": "20daef19c50ef3b993499491be67e0696e7d87a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jvrcavalcanti/Request/zipball/20daef19c50ef3b993499491be67e0696e7d87a6",
+                "reference": "20daef19c50ef3b993499491be67e0696e7d87a6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Accolon\\Request\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Library for request with cUrl",
+            "time": "2020-06-13T06:41:23+00:00"
         },
         {
             "name": "accolon/route",
