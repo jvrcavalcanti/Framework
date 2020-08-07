@@ -27,7 +27,7 @@ function auth()
     return app(\Pendragon\Framework\Auth\IAuth::class);
 }
 
-function app(string $class = ""): Pendragon\Framework\App
+function app(string $class = "")
 {
     global $app;
 
