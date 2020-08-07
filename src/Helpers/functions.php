@@ -2,7 +2,6 @@
 
 use Accolon\Route\Request;
 use Accolon\Route\Response;
-use Pendragon\Framework\Auth\AuthToken;
 use Symfony\Component\Dotenv\Dotenv;
 
 function request(?string $param = null)
@@ -25,13 +24,17 @@ function session($param = null)
 
 function auth()
 {
-    return new AuthToken;
+    return app(\Pendragon\Framework\Auth\IAuth::class);
 }
 
-function app(): Pendragon\Framework\App
+function app(string $class = ""): Pendragon\Framework\App
 {
     global $app;
-    return $app;
+
+    if ($class === "") {
+        return $app;
+    }
+    return $app->make($class);
 }
 
 
