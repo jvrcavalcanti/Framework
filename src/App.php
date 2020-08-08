@@ -12,11 +12,6 @@ class App extends Router
 {
     use Providers;
 
-    public function bootProviders()
-    {
-        $this->boot();
-    }
-
     public function run()
     {
         try {

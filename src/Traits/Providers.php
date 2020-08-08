@@ -25,7 +25,7 @@ trait Providers
         return $this;
     }
 
-    public function boot()
+    public function bootProviders()
     {
         foreach ($this->providers as $provider) {
             $provider->boot();
