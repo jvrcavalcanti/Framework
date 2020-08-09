@@ -5,7 +5,7 @@ namespace Pendragon\Framework;
 use Accolon\Route\Router;
 use Pendragon\Framework\Exceptions\PendragonException;
 use Pendragon\Framework\Exceptions\ValidateFailException;
-use Accolon\DataLayer\Exceptions\FailQueryException;
+use Accolon\Izanami\Exceptions\FailQueryException;
 use Pendragon\Framework\Traits\Providers;
 
 class App extends Router

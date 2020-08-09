@@ -45,7 +45,7 @@ class Event
 
         namespace App\Model;
 
-        use Accolon\DataLayer\Model;
+        use Accolon\Izanami\Model;
 
         class className extends Model
         {
