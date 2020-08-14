@@ -15,7 +15,7 @@ class AuthJWT implements IAuth
     public function __construct()
     {
         $this->request = request();
-        $this->jwt = new JWT(env('KEY'), 'HS256', 3600, 10);
+        $this->jwt = new JWT(env('KEY'), 'HS256', env('TOKEN_HOURS') * 3600, 10);
     }
 
     public function generate($data): string

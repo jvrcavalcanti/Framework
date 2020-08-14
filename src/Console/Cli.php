@@ -15,7 +15,6 @@ class Cli
         "make.controller",
         "make.view",
         "make.migration",
-        "make.key",
         "make.middleware",
         "make.repository",
         "make.provider",
@@ -24,7 +23,9 @@ class Cli
         "migrate.rollback",
         "migrate.refresh",
         // Clear
-        "clear.images"
+        "clear.images",
+        // Config
+        "config.key"
     ];
 
     public function run()
@@ -43,66 +44,27 @@ class Cli
             exit;
         }
 
-        switch ($command) {
-            case "make.model":
-                Make::model($event);
-                break;
+        $command = explode(".", $command);
 
-            case "make.migration":
-                Make::migration($event);
-                break;
+        $tmp = str_split($command[0]);
+        $tmp[0] = strtoupper($tmp[0]);
+        $class = "Pendragon\\Framework\\Console\\" . implode("", $tmp);
 
-            case "make.middleware":
-                Make::middleware($event);
-                break;
+        if (sizeof($command) === 2) {
+            $method = $command[1];
+            $class::$method($event);
+        }
 
-            case "make.controller":
-                Make::controller($event);
-                break;
-
-            case "make.component":
-                Make::component($event);
-                break;
-
-            case "make.view":
-                Make::view($event);
-                break;
-
-            case "make.key":
-                Make::key($event);
-                break;
-
-            case "make.repository":
-                Make::repository($event);
-                break;
-
-            case "make.provider":
-                Make::provider($event);
-                break;
-
-            case "migrate":
-                Migration::migrate();
-                break;
-
-            case "migrate.rollback":
-                Migration::rollback();
-                break;
-
-            case "migrate.refresh":
-                Migration::refresh();
-                break;
-
-            case "clear.images":
-                Clear::images();
-                break;
-
-            case "list":
-                print_r($this->commands);
-                break;
-
-            case "ls":
-                print_r($this->commands);
-                break;
+        if (sizeof($command) === 1) {
+            switch ($command[0]) {
+                case "list":
+                    print_r($this->commands);
+                    break;
+    
+                case "ls":
+                    print_r($this->commands);
+                    break;
+            }
         }
     }
 }

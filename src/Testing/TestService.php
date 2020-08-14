@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class TestService extends TestCase
 {
-    private Client $client;
+    protected Client $client;
 
     public function setUp(): void
     {

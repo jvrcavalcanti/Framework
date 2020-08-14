@@ -53,10 +53,10 @@ function redirect($path)
     app()->redirect($path);
 }
 
-function env(string $attr): ?string
+function env(string $attr, $default = "")
 {
     (new Dotenv())->load(APP_ROOT . ".env");
-    return $_ENV[$attr];
+    return $_ENV[$attr] ?? $default;
 }
 
 /* Util */
