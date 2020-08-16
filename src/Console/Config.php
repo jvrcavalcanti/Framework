@@ -17,7 +17,7 @@ class Config
             $dotenv[$data[0]] = $data[1];
         }
 
-        $dotenv["KEY"] = md5(uniqid(rand(), true));
+        $dotenv["KEY"] = base64_encode(openssl_random_pseudo_bytes(32));
 
         $out = "";
         foreach ($dotenv as $key => $value) {

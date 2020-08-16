@@ -7,31 +7,22 @@ use PHPUnit\Framework\TestCase;
 
 class CryptTest extends TestCase
 {
-    public function testKeyGenerate()
-    {
-        $this->assertEquals(
-            32,
-            strlen(Crypt::keyGenerate())
-        );
-    }
-
     public function testEncrypt()
     {
-        $key = Crypt::keyGenerate();
-        $this->assertEquals(
-            60,
-            strlen(Crypt::encrypt("abc", $key))
+        $data = "abc";
+        $this->assertNotEquals(
+            hashing()->encrypt($data),
+            $data
         );
     }
 
     public function testDecrypt()
     {
         $data = "abc";
-        $key = Crypt::keyGenerate();
-        $encrypted = Crypt::encrypt($data, $key);
+        $encrypted = hashing()->encrypt($data);
         $this->assertEquals(
             $data,
-            Crypt::decrypt($encrypted, $key)
+            hashing()->decrypt($encrypted)
         );
     }
 }

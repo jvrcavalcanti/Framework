@@ -4,52 +4,62 @@ namespace Pendragon\Framework\Hashing;
 
 class Crypt
 {
-    public static function keyGenerate(): string
+    private string $method;
+    private string $iv;
+    private string $firstKey;
+    private string $secondKey;
+    private $tag;
+
+    public function __construct(string $firstKey, string $method = "aes-256-cbc")
     {
-        return random_bytes(SODIUM_CRYPTO_SECRETBOX_KEYBYTES);
-        // return md5(uniqid(rand(), true));
+        $this->firstKey = base64_decode($firstKey);
+        $this->secondKey = openssl_random_pseudo_bytes(64);
+
+        $this->method = $method;
+        $ivlen = openssl_cipher_iv_length($this->method);
+        $this->iv = openssl_random_pseudo_bytes($ivlen);
     }
 
-    public static function encrypt(string $data, string $key): string
+    public function encrypt(string $data)
     {
-        if (mb_strlen($key, '8bit') !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
-            throw new \RangeException('Key is not the correct size (must be 32 bytes).');
-        }
-
-        $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-
-        $cipher = base64_encode(
-            $nonce . sodium_crypto_secretbox(
-                $data,
-                $nonce,
-                $key
-            )
+        $firstEncrypted = openssl_encrypt(
+            $data,
+            $this->method,
+            $this->firstKey,
+            OPENSSL_RAW_DATA,
+            $this->iv
         );
-        sodium_memzero($data);
-        sodium_memzero($key);
 
-        return $cipher;
+        $secondEncrypted = hash_hmac(
+            'sha3-512',
+            $firstEncrypted,
+            $this->secondKey,
+            true
+        );
+
+        return base64_encode($this->iv . $secondEncrypted . $firstEncrypted);
     }
 
-    public static function decrypt(string $encrypted, string $key): string
+    public function decrypt(string $encrypted)
     {
-        $decoded = base64_decode($encrypted);
-        $nonce = mb_substr($decoded, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
-        $ciphertext = mb_substr($decoded, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
+        $mix = base64_decode($encrypted);
 
-        $plain = sodium_crypto_secretbox_open(
-            $ciphertext,
-            $nonce,
-            $key
+        $iv_length = openssl_cipher_iv_length($this->method);
+        $iv = substr($mix, 0, $iv_length);
+
+        $secondEncrypted = substr($mix, $iv_length, 64);
+        $firstEncrypted = substr($mix, $iv_length + 64);
+
+        $data = openssl_decrypt(
+            $firstEncrypted,
+            $this->method,
+            $this->firstKey,
+            OPENSSL_RAW_DATA,
+            $iv
         );
 
-        if (!is_string($plain)) {
-            throw new \Exception('Invalid MAC');
-        }
+        $secondEncryptedNew = hash_hmac('sha3-512', $firstEncrypted, $this->secondKey, true);
 
-        sodium_memzero($ciphertext);
-        sodium_memzero($key);
-
-        return $plain;
+        return $data;
     }
 }

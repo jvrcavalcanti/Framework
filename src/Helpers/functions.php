@@ -2,6 +2,7 @@
 
 use Accolon\Route\Request;
 use Accolon\Route\Response;
+use Pendragon\Framework\Hashing\Crypt;
 use Symfony\Component\Dotenv\Dotenv;
 
 function request(?string $param = null)
@@ -25,6 +26,11 @@ function session($param = null)
 function auth()
 {
     return app(\Pendragon\Framework\Auth\IAuth::class);
+}
+
+function hashing()
+{
+    return new Crypt(env('KEY'));
 }
 
 function app(string $class = "")
