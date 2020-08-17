@@ -2,7 +2,7 @@
 
 namespace Pendragon\Framework\Console;
 
-class Migration
+class Migrate
 {
     private static string $path = APP_ROOT . "migrations";
 

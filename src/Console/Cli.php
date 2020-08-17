@@ -64,6 +64,10 @@ class Cli
                 case "ls":
                     print_r($this->commands);
                     break;
+
+                case "migrate":
+                    Migrate::migrate($event);
+                    break;
             }
         }
     }
