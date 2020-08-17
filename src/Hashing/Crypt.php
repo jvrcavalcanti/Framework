@@ -6,14 +6,11 @@ class Crypt
 {
     private string $method;
     private string $iv;
-    private string $firstKey;
-    private string $secondKey;
-    private $tag;
+    private string $key;
 
-    public function __construct(string $firstKey, string $method = "aes-256-cbc")
+    public function __construct(string $key, string $method = "aes-256-cbc")
     {
-        $this->firstKey = base64_decode($firstKey);
-        $this->secondKey = openssl_random_pseudo_bytes(64);
+        $this->key = base64_decode($key);
 
         $this->method = $method;
         $ivlen = openssl_cipher_iv_length($this->method);
@@ -25,7 +22,7 @@ class Crypt
         $firstEncrypted = openssl_encrypt(
             $data,
             $this->method,
-            $this->firstKey,
+            $this->key,
             OPENSSL_RAW_DATA,
             $this->iv
         );
@@ -33,7 +30,7 @@ class Crypt
         $secondEncrypted = hash_hmac(
             'sha3-512',
             $firstEncrypted,
-            $this->secondKey,
+            $this->key,
             true
         );
 
@@ -53,13 +50,17 @@ class Crypt
         $data = openssl_decrypt(
             $firstEncrypted,
             $this->method,
-            $this->firstKey,
+            $this->key,
             OPENSSL_RAW_DATA,
             $iv
         );
 
-        $secondEncryptedNew = hash_hmac('sha3-512', $firstEncrypted, $this->secondKey, true);
+        $secondEncryptedNew = hash_hmac('sha3-512', $firstEncrypted, $this->key, true);
 
-        return $data;
+        if (hash_equals($secondEncrypted, $secondEncryptedNew)) {
+            return $data;
+        }
+
+        return false;
     }
 }

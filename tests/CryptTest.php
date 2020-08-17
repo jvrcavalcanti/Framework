@@ -11,7 +11,7 @@ class CryptTest extends TestCase
     {
         $data = "abc";
         $this->assertNotEquals(
-            hashing()->encrypt($data),
+            crypting()->encrypt($data),
             $data
         );
     }
@@ -19,10 +19,7 @@ class CryptTest extends TestCase
     public function testDecrypt()
     {
         $data = "abc";
-        $encrypted = hashing()->encrypt($data);
-        $this->assertEquals(
-            $data,
-            hashing()->decrypt($encrypted)
-        );
+        $encrypted = crypting()->encrypt($data);
+        $this->assertNotFalse(crypting()->decrypt($encrypted));
     }
 }

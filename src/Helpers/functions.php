@@ -28,7 +28,7 @@ function auth()
     return app(\Pendragon\Framework\Auth\IAuth::class);
 }
 
-function hashing()
+function crypting()
 {
     return new Crypt(env('KEY'));
 }
