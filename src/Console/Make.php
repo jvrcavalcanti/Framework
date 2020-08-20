@@ -79,14 +79,6 @@ class Make
 
         $f = fopen(APP_ROOT . "app/Components/" . $name . ".php", "w");
         fwrite($f, $template);
-
-        $path = APP_ROOT . "resources/components/" . strtolower($name);
-
-        mkdir($path);
-
-        fopen($path . "/index.php", "w");
-        fopen($path . "/style.css", "w");
-        fopen($path . "/main.js", "w");
     }
 
     public static function repository(Event $event)

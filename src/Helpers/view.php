@@ -1,5 +1,7 @@
 <?php
 
+use Accolon\Template\Template;
+
 function component($class, $props = [])
 {
     if (class_exists("App\\Components\\{$class}")) {

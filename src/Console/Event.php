@@ -137,7 +137,7 @@ class Event
             public function render(): string
             {
                 return <<<TEMPLATE
-                <<<;
+                TEMPLATE;
             }
         }
         TMP;
