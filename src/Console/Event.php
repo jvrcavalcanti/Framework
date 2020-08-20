@@ -130,11 +130,15 @@ class Event
 
         namespace App\Components;
 
-        use Accolon\Template\Component;
+        use Accolon\ViewComponents\Component;
 
         class className extends Component
         {
-            protected string &dir = "%name%";
+            public function render(): string
+            {
+                return <<<TEMPLATE
+                <<<;
+            }
         }
         TMP;
     }

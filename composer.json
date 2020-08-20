@@ -4,7 +4,7 @@
     "license": "MIT",
     "require": {
         "accolon/migration": "^3.0.4",
-        "accolon/template": "^3.3",
+        "accolon/template": "^4.0",
         "accolon/token": "^1.2",
         "accolon/route": "^4.2",
         "accolon/request": "^0.2.1",

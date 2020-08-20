@@ -1,15 +1,16 @@
 <?php
 
-use Accolon\Template\Template;
-
-function component($name, $options = [])
+function component($class, $props = [])
 {
-    $arr = str_split($name);
-    $arr[0] = strtoupper($arr[0]);
-    $name = implode("", $arr);
-    $fullName = "\\App\\Components\\{$name}";
-    $component = new $fullName($options);
-    $component->render("../resources/components");
+    if (class_exists("App\\Components\\{$class}")) {
+        return render("App\\Components\\{$class}", $props);
+    }
+
+    if (class_exists("Accolon\\ViewComponents\\Components\\{$class}")) {
+        return render("Accolon\\ViewComponents\\Components\\{$class}", $props);
+    }
+
+    throw new \RuntimeException("[$class] component not found");
 }
 
 function img($path)
