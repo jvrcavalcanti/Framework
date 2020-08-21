@@ -150,23 +150,7 @@ class Event
 
         namespace App\Repositories;
 
-        use App\Repositories\interfaceName;
-
-        class className implements interfaceName
-        {
-            //
-        }
-        TMP;
-    }
-
-    private function templateRepositoryInterface()
-    {
-        return <<<TMP
-        <?php
-
-        namespace App\Repositories;
-
-        interface className
+        class className
         {
             //
         }

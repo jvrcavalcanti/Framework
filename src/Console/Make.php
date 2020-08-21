@@ -86,22 +86,13 @@ class Make
         $args = $event->getArguments();
         $name = $args[0];
 
-        if ($args[1] === "--izanami") {
-            $template = $event->getTemplate("Repository");
-            $template = str_replace("className", $name . "Izanami", $template);
-            $template = str_replace("interfaceName", "I" .$name, $template);
+        $template = $event->getTemplate("Repository");
+        $template = str_replace("className", $name, $template);
 
-            $f = fopen(APP_ROOT . "app/Repositories/Izanami/" . $name . "Izanami" . ".php", "w");
-            fwrite($f, $template);
-            $event->say("Created " . "app/Repositories/Izanami/" . $name . "Izanami" . ".php");
-        }
-
-        $template = $event->getTemplate("RepositoryInterface");
-        $template = str_replace("className", "I" . $name, $template);
-
-        $f = fopen(APP_ROOT . "app/Repositories/" . "I" . $name . ".php", "w");
+        $f = fopen(APP_ROOT . "app/Repositories/" . $name . ".php", "w");
         fwrite($f, $template);
-        $event->say("Created " . "app/Repositories/" . "I" . $name . ".php");
+
+        $event->say("Created " . "app/Repositories/" . $name . ".php");
     }
 
     public static function provider(Event $event)
