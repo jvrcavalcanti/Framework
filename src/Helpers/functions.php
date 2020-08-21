@@ -1,19 +1,6 @@
 <?php
 
-use Accolon\Route\Request;
-use Accolon\Route\Response;
-use Pendragon\Framework\Hashing\Crypt;
 use Symfony\Component\Dotenv\Dotenv;
-
-function request(?string $param = null)
-{
-    $request = new Request($_REQUEST);
-    if (!$param) {
-        return $request;
-    }
-
-    return $request->get($param);
-}
 
 function session($param = null)
 {
@@ -28,11 +15,6 @@ function auth()
     return app(\Pendragon\Framework\Auth\IAuth::class);
 }
 
-function crypting()
-{
-    return new Crypt(env('KEY'));
-}
-
 function app(string $class = "")
 {
     global $app;
@@ -41,22 +23,6 @@ function app(string $class = "")
         return $app;
     }
     return $app->make($class);
-}
-
-
-function path($path)
-{
-    return "../" . $path . "/";
-}
-
-function response(): Response
-{
-    return new Response();
-}
-
-function redirect($path)
-{
-    app()->redirect($path);
 }
 
 function env(string $attr, $default = "")
