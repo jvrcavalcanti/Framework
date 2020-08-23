@@ -2,7 +2,7 @@
 
 namespace Pendragon\Framework\Web;
 
-use Accolon\Request\Request;
+use Accolon\Route\Request;
 
 interface IDTO
 {
