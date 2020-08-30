@@ -51,7 +51,7 @@ class Event
         {
             protected string &table = "%name%";
 
-            protected array &safes = [];
+            protected array &sensitives = [];
         }
         TMP;
     }
@@ -116,7 +116,7 @@ class Event
         use Accolon\Route\Request;
         use Accolon\Route\Response;
 
-        class className extends Controller
+        class className
         {
             //
         }
