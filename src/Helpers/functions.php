@@ -12,17 +12,7 @@ function session($param = null)
 
 function auth()
 {
-    return app(\Pendragon\Framework\Auth\IAuth::class);
-}
-
-function app(string $class = "")
-{
-    global $app;
-
-    if ($class === "") {
-        return $app;
-    }
-    return $app->make($class);
+    return resolve(\Pendragon\Framework\Auth\IAuth::class);
 }
 
 function env(string $attr, $default = "")
@@ -42,18 +32,6 @@ function dd($var)
 
     ?>
     <html>
-        <style>
-            * {
-                margin: 0px;
-                padding: 0px;
-                box-sizing: border-box;
-            }
-
-            html {
-                background-color: #00082b;
-                color: #ad850a;
-            }
-        </style>
         <pre>
         <?php var_dump($var); ?>
         </pre>

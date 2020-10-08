@@ -2,20 +2,19 @@
 
 namespace Pendragon\Framework\Auth;
 
-use Accolon\Route\Middleware;
+use Accolon\Route\IMiddleware;
 use Accolon\Route\Request;
-use Accolon\Route\Response;
 
-class AuthMiddleware implements Middleware
+class AuthMiddleware implements IMiddleware
 {
-    public function handle(Request $request, Response $response, $next)
+    public function handle(Request $request, $next)
     {
         if (!auth()->verify()) {
-            return $response->json([
+            return response()->json([
                 "message" => "Unaterized"
             ], 401);
         }
 
-        return $next($request, $response);
+        return $next($request);
     }
 }

@@ -92,15 +92,14 @@ class Event
 
         namespace App\Middleware;
 
-        use Accolon\Route\Middleware;
+        use Accolon\Route\IMiddleware;
         use Accolon\Route\Request;
-        use Accolon\Route\Response;
 
-        class className implements Middleware
+        class className implements IMiddleware
         {
-            public function handle(Request &request, Response &response, &next)
+            public function handle(Request &request, &next)
             {
-                return &next(&request, &response);
+                return &next(&request);
             }
         }
         TMP;
@@ -114,7 +113,6 @@ class Event
         namespace App\Controller;
 
         use Accolon\Route\Request;
-        use Accolon\Route\Response;
 
         class className
         {
@@ -164,7 +162,7 @@ class Event
 
         namespace App\Providers;
 
-        use Pendragon\Framework\Provider;
+        use Accolon\Route\Provider;
 
         class className extends Provider
         {
