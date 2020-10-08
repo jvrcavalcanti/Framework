@@ -7,5 +7,5 @@ function path($path)
 
 function redirect($path)
 {
-    router()->redirect($path);
+    app()->redirect($path);
 }
