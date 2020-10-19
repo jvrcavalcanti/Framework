@@ -9,5 +9,5 @@ interface IAuth
     public function extract(string $token);
     public function generate($data): string;
     public function getToken(): ?string;
-    public function user(): \App\Model\User;
+    public function user(): Authenticatable;
 }

@@ -49,8 +49,6 @@ class Event
 
         class className extends Model
         {
-            protected string &table = "%name%";
-
             protected array &sensitives = [];
         }
         TMP;
@@ -61,9 +59,9 @@ class Event
         return <<<TMP
         <?php
 
-        use Accolon\Migration\Migration;
-        use Accolon\Migration\Schema;
-        use Accolon\Migration\Blueprint;
+        use Accolon\Izanami\Migration\Migration;
+        use Accolon\Izanami\Migration\Schema;
+        use Accolon\Izanami\Migration\Blueprint;
 
         class className implements Migration
         {

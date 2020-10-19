@@ -31,11 +31,9 @@ function dd($var)
     }
 
     ?>
-    <html>
-        <pre>
-        <?php var_dump($var); ?>
-        </pre>
-    </html>
+    <pre>
+    <?php var_dump($var); ?>
+    </pre>
     <?php
     exit;
 }
