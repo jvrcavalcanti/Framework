@@ -25,7 +25,8 @@ class Cli
         // Clear
         "clear.images",
         // Config
-        "config.key"
+        "config.key",
+        "interactive"
     ];
 
     public function run()
@@ -67,6 +68,10 @@ class Cli
 
                 case "migrate":
                     Migrate::migrate($event);
+                    break;
+
+                case "interactive":
+                    Interactive::run();
                     break;
             }
         }
