@@ -2,9 +2,13 @@
 
 namespace Pendragon\Framework\Console;
 
-class Interactive
+use Accolon\Cli\Command;
+
+class Interactive extends Command
 {
-    public static function input(string $question = "")
+    protected string $signature = 'interactive';
+
+    public function input(string $question = "")
     {
         $fh = fopen('php://stdin', 'r');
         echo $question;
@@ -13,11 +17,11 @@ class Interactive
         return $input;
     }
 
-    public static function run()
+    public function handle()
     {
         while (true) {
             try {
-                $command = self::input("$> ");
+                $command = $this->input("$> ");
                 $return = eval($command . ";");
                 if ($return) {
                     var_dump($return);

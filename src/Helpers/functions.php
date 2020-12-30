@@ -21,6 +21,11 @@ function env(string $attr, $default = "")
     return $_ENV[$attr] ?? $default;
 }
 
+function migrations(): string
+{
+    return APP_ROOT . 'migrations';
+}
+
 /* Util */
 
 function dd($var)

@@ -1,10 +1,14 @@
 <?php
 
-namespace Pendragon\Framework\Console;
+namespace Pendragon\Framework\Console\Config;
 
-class Config
+use Accolon\Cli\Command;
+
+class KeyCommand extends Command
 {
-    public static function key(Event $event)
+    protected string $signature = 'config.key';
+
+    public function handle()
     {
         $env = file_get_contents(APP_ROOT . ".env");
         $envs = explode("\n", $env);
