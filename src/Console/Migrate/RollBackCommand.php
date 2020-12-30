@@ -4,7 +4,7 @@ namespace Pendragon\Framework\Console\Migrate;
 
 use Accolon\Cli\Command;
 
-class UpCommand extends Command
+class RollBackCommand extends Command
 {
     protected string $signature = 'migrate.rollback';
 
