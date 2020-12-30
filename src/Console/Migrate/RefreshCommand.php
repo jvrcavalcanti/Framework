@@ -4,7 +4,7 @@ namespace Pendragon\Framework\Console\Migrate;
 
 use Accolon\Cli\Command;
 
-class UpCommand extends Command
+class RefreshCommand extends Command
 {
     protected string $signature = 'migrate.refresh';
 
