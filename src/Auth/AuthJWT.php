@@ -60,6 +60,6 @@ class AuthJWT implements IAuth
 
         $data = $this->extract($token);
 
-        return resolve(Authenticatable::class)->findOrFail($data['user_id']);
+        return resolve($data['class'])->findOrFail($data['user_id']);
     }
 }
