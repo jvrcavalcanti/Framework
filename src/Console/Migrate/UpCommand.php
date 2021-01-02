@@ -6,7 +6,7 @@ use Accolon\Cli\Command;
 
 class UpCommand extends Command
 {
-    protected string $signature = 'migrate';
+    protected string $signature = '^migrate$';
 
     public function handle()
     {
