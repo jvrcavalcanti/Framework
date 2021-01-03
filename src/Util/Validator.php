@@ -4,34 +4,23 @@ namespace Pendragon\Framework\Util;
 
 use Accolon\Route\Request;
 use Pendragon\Framework\Exceptions\ValidateFailException;
+use Pendragon\Framework\Util\Rules\IntRule;
+use Pendragon\Framework\Util\Rules\StringRule;
 
 class Validator
 {
-    const STRING = "string";
-    const NUMBER = "number";
+    const VALIDATORS = [
+        'string' => StringRule::class,
+        'int' => IntRule::class,
+    ];
 
-    public static function validate(string $partern, string $data)
+    public static function make($rule, $name, $value): bool
     {
-        return !!static::match($partern, $data);
-    }
-
-    public static function match(string $partern, string $data)
-    {
-        switch ($partern) {
-            case self::STRING:
-                $partern = "(\w)";
-                break;
-
-            case self::NUMBER:
-                $partern = "([0-9])";
-                break;
+        if (! $rule instanceof Rule) {
+            $rule = resolve(static::VALIDATORS[$rule]);
         }
 
-        if (preg_match("/" . $partern . "/i", $data, $matches)) {
-            return $matches[0];
-        }
-
-        return null;
+        return $rule->check($name, $value);
     }
 
     public static function request(Request $request, array $rules)
@@ -41,7 +30,7 @@ class Validator
                 throw new ValidateFailException("Not passed param: {$param}");
             }
 
-            if (!static::validate($rule, $request->get($param))) {
+            if (!static::make($rule, $param, $request->get($param))) {
                 throw new ValidateFailException("Invalided param: {$param}");
             }
         }

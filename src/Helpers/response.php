@@ -16,7 +16,5 @@ function abortWhen(
     string $message = "Abort Application",
     string $exception = PendragonException::class
 ) {
-    if ($check) {
-        abort($code, $message, $exception);
-    }
+    $check && abort($code, $message, $exception);
 }
