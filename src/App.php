@@ -2,30 +2,30 @@
 
 namespace Pendragon\Framework;
 
+use Accolon\Container\Container;
 use Accolon\Route\Router;
-use Pendragon\Framework\Exceptions\PendragonException;
-use Pendragon\Framework\Exceptions\ValidateFailException;
-use Accolon\Izanami\Exceptions\FailQueryException;
-use Accolon\Route\Request;
+use Pendragon\Framework\Traits\HasProviders;
 
-class App extends Router
+class App
 {
-    public function runMiddlewares(Request $request)
+    use HasProviders;
+
+    private Router $router;
+    private Container $container;
+
+    public function __construct(?Container $container = null)
     {
-        try {
-            return parent::runMiddlewares($request);
-        } catch (ValidateFailException $e) {
-            return response()->json([
-                "message" => $e->getMessage()
-            ], $e->getCode());
-        } catch (FailQueryException $e) {
-            return response()->json([
-                "message" => $e->getMessage()
-            ], 400);
-        } catch (PendragonException $e) {
-            return response()->json([
-                "message" => $e->getMessage()
-            ], $e->getCode());
-        }
+        $this->router = new Router();
+        $this->container = $container ?? new Container();
+    }
+
+    public function getRouter(): Router
+    {
+        return $this->router;
+    }
+
+    public function getContainer(): Container
+    {
+        return $this->container;
     }
 }
