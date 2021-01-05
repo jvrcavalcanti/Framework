@@ -17,6 +17,7 @@ class App
     {
         $this->router = new Router();
         $this->container = $container ?? new Container();
+        $this->container->singletons(Container::class, $this->container);
     }
 
     public function getRouter(): Router
