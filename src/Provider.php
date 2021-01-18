@@ -2,6 +2,8 @@
 
 namespace Pendragon\Framework;
 
+use Accolon\Container\Container;
+
 abstract class Provider
 {
     protected Container $container;
