@@ -16,7 +16,7 @@ class Validator
 
     public static function make($rule, $name, $value): bool
     {
-        if (! $rule instanceof Rule) {
+        if (!$rule instanceof Rule) {
             $rule = resolve(static::VALIDATORS[$rule]);
         }
 

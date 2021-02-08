@@ -17,11 +17,11 @@ class Router extends AccolonRouter
         } catch (ValidateFailException $e) {
             return response()->json([
                 "message" => $e->getMessage()
-            ], $e->getCode());
+            ], 400);
         } catch (FailQueryException $e) {
             return response()->json([
                 "message" => $e->getMessage()
-            ], 400);
+            ], 404);
         } catch (PendragonException $e) {
             return response()->json([
                 "message" => $e->getMessage()

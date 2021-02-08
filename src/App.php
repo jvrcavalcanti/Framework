@@ -3,7 +3,7 @@
 namespace Pendragon\Framework;
 
 use Accolon\Container\Container;
-use Accolon\Route\Router;
+use Pendragon\Framework\Router;
 use Pendragon\Framework\Traits\HasProviders;
 
 class App
