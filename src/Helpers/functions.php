@@ -1,6 +1,6 @@
 <?php
 
-use Pendragon\Framework\App;
+use Pendragon\Framework\Application;
 use Symfony\Component\Dotenv\Dotenv;
 
 function session($param = null)
@@ -27,23 +27,11 @@ function migrations(): string
     return APP_ROOT . 'migrations';
 }
 
-function app(): App
-{
-    if (!isset($GLOBALS['app'])) {
-        throw new \Exception("Not exists app in global scope");
+if (!function_exists('app')) {
+    function app(): ?Application
+    {
+        return $GLOBALS['app'] ?? null;
     }
-
-    return $GLOBALS['app'];
-}
-
-function container($id = null)
-{
-    return is_null($id) ? app()->getContainer() : container()->get($id);
-}
-
-function resolve(string $class)
-{
-    return container()->make($class);
 }
 
 /* Util */
