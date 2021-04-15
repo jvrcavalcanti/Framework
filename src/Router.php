@@ -2,13 +2,13 @@
 
 namespace Pendragon\Framework;
 
-use Accolon\Route\Router as AccolonRouter;
+use Accolon\Route\App;
 use Pendragon\Framework\Exceptions\PendragonException;
 use Pendragon\Framework\Exceptions\ValidateFailException;
 use Accolon\Izanami\Exceptions\FailQueryException;
 use Accolon\Route\Request;
 
-class Router extends AccolonRouter
+class Router extends App
 {
     public function runMiddlewares(Request $request)
     {

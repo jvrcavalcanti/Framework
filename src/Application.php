@@ -6,7 +6,7 @@ use Accolon\Container\Container;
 use Pendragon\Framework\Router;
 use Pendragon\Framework\Traits\HasProviders;
 
-class App
+class Application
 {
     use HasProviders;
 

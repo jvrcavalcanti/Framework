@@ -12,6 +12,5 @@ define('BASE_COMMANDS', [
     Pendragon\Framework\Console\Make\MigrationCommand::class,
     Pendragon\Framework\Console\Make\ControllerCommand::class,
     Pendragon\Framework\Console\Make\ViewCommand::class,
-    Pendragon\Framework\Console\Make\RepositoryCommand::class,
     Pendragon\Framework\Console\Make\ProviderCommand::class,
 ]);
