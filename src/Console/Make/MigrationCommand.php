@@ -32,6 +32,7 @@ class MigrationCommand extends AbstractMake
                 return Schema::dropIfExists(&this->table);
             }
         }
+        
         TEMP;
     }
 

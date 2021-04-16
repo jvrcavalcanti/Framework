@@ -23,6 +23,7 @@ class ComponentCommand extends AbstractMake
                 TEMPLATE;
             }
         }
+
         TMP;
     }
 
@@ -40,6 +41,6 @@ class ComponentCommand extends AbstractMake
         $f = fopen(APP_ROOT . "app/Components/" . $name . ".php", "w");
         fwrite($f, $template);
 
-        echo "Created " . "app/Components/" . $name . ".php";
+        echo "Created " . "app/Components/" . $name . ".php" . PHP_EOL;
     }
 }

@@ -11,7 +11,7 @@ class ModelCommand extends AbstractMake
         return <<<TMP
         <?php
 
-        namespace App\Model;
+        namespace App\Models;
 
         use Accolon\Izanami\Model;
 
@@ -19,6 +19,7 @@ class ModelCommand extends AbstractMake
         {
             protected array &sensitives = [];
         }
+        
         TMP;
     }
 
@@ -26,12 +27,12 @@ class ModelCommand extends AbstractMake
     {
         $template = $this->getTemplate();
         $name = $this->argument('name');
-        $f = fopen(APP_ROOT . "app/Model/" . $name . ".php", "x+");
+        $f = fopen(APP_ROOT . "app/Models/" . $name . ".php", "x+");
 
         $template = str_replace("className", $name, $template);
         $template = str_replace("%name%", strtolower($name) . "s", $template);
 
         fwrite($f, $template);
-        echo "Created " . "app/Model/" . $name . ".php";
+        echo "Created " . "app/Models/" . $name . ".php" . PHP_EOL;
     }
 }

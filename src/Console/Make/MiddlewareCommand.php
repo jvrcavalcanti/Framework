@@ -11,7 +11,7 @@ class MiddlewareCommand extends AbstractMake
         return <<<TMP
         <?php
 
-        namespace App\Middleware;
+        namespace App\Middlewares;
 
         use Accolon\Route\IMiddleware;
         use Accolon\Route\Request;
@@ -23,6 +23,7 @@ class MiddlewareCommand extends AbstractMake
                 return &next(&request);
             }
         }
+
         TMP;
     }
 
@@ -30,11 +31,11 @@ class MiddlewareCommand extends AbstractMake
     {
         $template = $this->getTemplate();
         $name = $this->argument('name');
-        $f = fopen(APP_ROOT . "app/Middleware/" . $name . ".php", "x+");
+        $f = fopen(APP_ROOT . "app/Middlewares/" . $name . ".php", "x+");
 
         $template = str_replace("className", $name, $template);
 
         fwrite($f, $template);
-        echo "Created " . "app/Middleware/" . $name . ".php";
+        echo "Created " . "app/Middlewares/" . $name . ".php" . PHP_EOL;
     }
 }

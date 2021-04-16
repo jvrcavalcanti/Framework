@@ -22,6 +22,7 @@ class ProviderCommand extends AbstractMake
                 //
             }
         }
+
         TMP;
     }
 
@@ -34,6 +35,6 @@ class ProviderCommand extends AbstractMake
         $template = str_replace("className", $name, $template);
 
         fwrite($f, $template);
-        echo "Created " . "app/Providers/" . $name . ".php";
+        echo "Created " . "app/Providers/" . $name . ".php" . PHP_EOL;
     }
 }

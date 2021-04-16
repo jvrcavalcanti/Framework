@@ -11,14 +11,16 @@ class ControllerCommand extends AbstractMake
         return <<<TMP
         <?php
 
-        namespace App\Controller;
+        namespace App\Controllers;
 
         use Accolon\Route\Request;
+        use Accolon\Route\Controller;
 
-        class className
+        class className extends Controller
         {
             //
         }
+
         TMP;
     }
 
@@ -26,11 +28,11 @@ class ControllerCommand extends AbstractMake
     {
         $template = $this->getTemplate();
         $name = $this->argument('name');
-        $f = fopen(APP_ROOT . "app/Controller/" . $name . ".php", "x+");
+        $f = fopen(APP_ROOT . "app/Controllers/" . $name . ".php", "x+");
 
         $template = str_replace("className", $name, $template);
 
         fwrite($f, $template);
-        echo "Created " . "app/Contrller/" . $name . ".php";
+        echo "Created " . "app/Contrllers/" . $name . ".php" . PHP_EOL;
     }
 }
